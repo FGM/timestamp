@@ -1,9 +1,9 @@
 /**
- * @file 
+ * @file
  * Scripts for the Timestamp extension for Chrome
- * 
+ *
  * @copyright (C) 2011 Ouest Systèmes Informatiques (OSInet)
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -14,7 +14,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along with 
+ * You should have received a copy of the GNU General Public License along with
  * this program, in file LICENSE.txt. If not, see <http://www.gnu.org/licenses/>.
  *
  * Contact information:
@@ -46,17 +46,17 @@ function tsChangeDateTime() {
 
 function tsChangeTimestamp(useElement) {
   var fields = {};
-  
+
   if (useElement) {
     var timestamp = document.getElementById('timestamp');
     var ts = new Date(timestamp.value * 1000);
   }
   else {
     var ts = new Date();
-    fields['timestamp'] = Math.round(ts.getTime() / 1000);    
+    fields['timestamp'] = Math.round(ts.getTime() / 1000);
   }
-  
-  var otherFields = { 
+
+  var otherFields = {
     year: ts.getFullYear(),
     month: ts.getMonth(),
     day: ts.getDate(),
@@ -64,11 +64,11 @@ function tsChangeTimestamp(useElement) {
     minutes: ts.getMinutes(),
     seconds: ts.getSeconds()
   };
-  
+
   for (field in otherFields) {
     fields[field] = otherFields[field];
   };
-  
+
   for (field in fields) {
     var element = document.getElementById(field);
     var value = fields[field];

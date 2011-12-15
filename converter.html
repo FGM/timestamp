@@ -32,23 +32,23 @@
     
   <body id="converter" onload="tsChangeTimestamp();">
     <div class="wrapper" id="datetime-wrapper">
-      <table>
+      <table oninput="tsChangeDateTime();" >
         <tbody>
           <tr>
             <td>Année</td>
-            <td><input type="number" id="year"    oninput="tsChangeDateTime();" size="4" maxlength="4" min="1970" max="2038" value="" /></td>
+            <td><input type="number" id="year"    size="4" maxlength="4" min="1970" max="2038" value="" /></td>
             <td>Mois</td>
-            <td><input type="number" id="month"   oninput="tsChangeDateTime();" size="2" maxlength="2" min="1" max="12" value="" /></td>
+            <td><input type="number" id="month"   size="2" maxlength="2" min="1" max="12" value="" /></td>
             <td>Jour</td>
-            <td><input type="number" id="day"     oninput="tsChangeDateTime();" size="2" maxlength="2" min="1" max="31" value="" /></td>
+            <td><input type="number" id="day"     size="2" maxlength="2" min="1" max="31" value="" /></td>
             </tr>
           <tr>
             <td>Heure</td>
-            <td><input type="number" id="hour"    oninput="tsChangeDateTime();" size="2" maxlength="2" min="0" max="23" value="" /></td>
+            <td><input type="number" id="hour"    size="2" maxlength="2" min="0" max="23" value="" /></td>
             <td>Minutes</td>
-            <td><input type="number" id="minutes" oninput="tsChangeDateTime();" size="2" maxlength="2" min="0" max="59" value="" /></td>
+            <td><input type="number" id="minutes" size="2" maxlength="2" min="0" max="59" value="" /></td>
             <td>Secondes</td>
-            <td><input type="number" id="seconds" oninput="tsChangeDateTime();" size="2" maxlength="2" min="0" max="59" value="" /></td>
+            <td><input type="number" id="seconds" size="2" maxlength="2" min="0" max="59" value="" /></td>
             </tr>
           </tbody>
         </table>
