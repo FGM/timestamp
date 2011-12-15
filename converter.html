@@ -1,0 +1,65 @@
+<html>
+<!-- 
+/**
+ * @file 
+ * Main screen for the Timestamp extension for Chrome
+ * 
+ * @copyright (C) 2011 Ouest Systèmes Informatiques (OSInet)
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with 
+ * this program, in file LICENSE.txt. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Contact information:
+ *   http://www.osinet.fr/osi/contact.asp
+ */
+ -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Timestamp converter</title>
+    <script type="text/javascript" src="converter.js" ></script>
+    </head>
+    
+  <body id="converter" onload="tsChangeTimestamp();">
+    <div class="wrapper" id="datetime-wrapper">
+      <table>
+        <tbody>
+          <tr>
+            <td>Année</td>
+            <td><input type="number" id="year"    oninput="tsChangeDateTime();" size="4" maxlength="4" min="1970" max="2038" value="" /></td>
+            <td>Mois</td>
+            <td><input type="number" id="month"   oninput="tsChangeDateTime();" size="2" maxlength="2" min="1" max="12" value="" /></td>
+            <td>Jour</td>
+            <td><input type="number" id="day"     oninput="tsChangeDateTime();" size="2" maxlength="2" min="1" max="31" value="" /></td>
+            </tr>
+          <tr>
+            <td>Heure</td>
+            <td><input type="number" id="hour"    oninput="tsChangeDateTime();" size="2" maxlength="2" min="0" max="23" value="" /></td>
+            <td>Minutes</td>
+            <td><input type="number" id="minutes" oninput="tsChangeDateTime();" size="2" maxlength="2" min="0" max="59" value="" /></td>
+            <td>Secondes</td>
+            <td><input type="number" id="seconds" oninput="tsChangeDateTime();" size="2" maxlength="2" min="0" max="59" value="" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <div class="wrapper" id="timestamp-wrapper">
+      <label for="timestamp">Horodatage</label>
+      <input type="number" id="timestamp" oninput="tsChangeTimestamp(true);" size="10" maxlength="10" min="0" max="2147483647" value="" />
+      </div>
+    <div class="wrapper" id="bottom-wrapper">
+      <input type="submit" id="close" value="Fermer" onclick="window.close();" />
+      <span id="now"></span>
+      </div>
+    </body>
+  </html>

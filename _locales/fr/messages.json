@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "Horodateur",
+    "description": "Nom de l'extension"
+  },
+  "extDescription": {
+    "message": "Date/heure de/vers horodatage", 
+    "description": "Description de l'extension"
+  },
+  "extDefaultTitle": {
+    "message": "Convertisseur d'horodatages",
+    "description": "Tooltip de l'icône par défaut"
+  }
+}

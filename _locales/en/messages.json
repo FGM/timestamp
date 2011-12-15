@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "Timestamp",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Date/time from/to UNIX timestamp",
+    "description": "Extension description"
+  },
+  "extDefaultTitle": {
+    "message": "Timestamp converter",
+    "description": "Tooltip for default icon"
+  }
+}

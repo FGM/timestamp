@@ -1,0 +1,89 @@
+<html>
+<!-- 
+/**
+ * @file 
+ * Options page for the Timestamp extension for Chrome
+ * 
+ * @copyright (C) 2011 Ouest Systèmes Informatiques (OSInet)
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with 
+ * this program, in file LICENSE.txt. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Contact information:
+ *   http://www.osinet.fr/osi/contact.asp
+ */
+ -->
+ 
+  <!-- Use localStorage to save/restore options -->
+  <head>
+    <title>Timestamp extension - options</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+  
+  <script type="text/javascript">
+
+// Saves options to localStorage.
+function save_options() {
+  var select = document.getElementById("color");
+  var color = select.children[select.selectedIndex].value;
+  localStorage["favorite_color"] = color;
+
+  // Update status to let user know options were saved.
+  var status = document.getElementById("status");
+  status.innerHTML = "Options Saved.";
+  status.style.display = 'block';
+  setTimeout(function() {
+    status.innerHTML = "";
+    status.style.display = 'none';
+  }, 750);
+}
+
+// Restores select box state to saved value from localStorage.
+function restore_options() {
+  var status = document.getElementById("status");
+  status.innerHTML = "Restoring options.";
+  status.style.display = 'block';
+  setTimeout(function() {
+    status.innerHTML = "";
+    status.style.display = 'none';
+  }, 750);
+
+  var favorite = localStorage["favorite_color"];
+  if (!favorite) {
+    return;
+  }
+  var select = document.getElementById("color");
+  for (var i = 0; i < select.children.length; i++) {
+    var child = select.children[i];
+    if (child.value == favorite) {
+      child.selected = "true";
+      break;
+    }
+  }
+}
+    </script>
+
+  <body onload="restore_options()">
+    <div id="status"></div>
+    Favorite Color:
+    <select id="color">
+      <option value="red">red</option>
+      <option value="green">green</option>
+      <option value="blue">blue</option>
+      <option value="yellow">yellow</option>
+      </select>
+    
+    <br />
+    <button onclick="save_options()">Save</button>
+    </body>
+  </html>

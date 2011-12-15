@@ -1,0 +1,100 @@
+{
+  // Required
+  "name": "__MSG_extName__",
+  "version": "1",
+  
+  // Recommended
+  "description": "__MSG_extDescription__",
+  "icons": { 
+    "16": "images/ts16.png",
+    "48": "images/ts48.png",
+    "128": "images/ts128.png" 
+  },  
+  "default_locale": "en",
+  
+  // Extension type: (browser|page)_action, theme, app, or just no type
+  "browser_action": {
+    "default_icon": "images/ts16.png",
+    "default_title": "__MSG_extDefaultTitle__"
+    //"default_popup": "popup.html"
+  },
+    
+  // Extra, used
+
+  // @link http://code.google.com/chrome/extensions/background_pages.html
+  "background_page": "background.html",
+  
+  // @link http://dvcs.w3.org/hg/content-security-policy/raw-file/tip/csp-specification.dev.html
+  // "content_security_policy": "default-src 'self' ",
+  "content_security_policy": "default-src * 'unsafe-inline'",
+
+  "homepage_url": "http://blog.riff.org/",
+  
+  // @link http://code.google.com/chrome/extensions/manifest.html#incognito
+  "incognito": "spanning", // or "split"
+   
+   "offline_enabled": true,
+   
+   // @link http://code.google.com/chrome/extensions/omnibox.html
+   // @TODO implement this access mode: return conversion result as a suggestion
+   // "omnibox": { "keyword" : "ts" },
+
+  "options_page": "options.html",
+     
+  "permissions": [
+    // Available on hosted apps
+    "clipboardRead", 
+    "clipboardWrite",
+     
+    // "background", 
+    // "geolocation", 
+    // "notifications", 
+    // "unlimitedStorage",
+    
+    // Not available on hosted apps
+    "tabs"
+    
+    // @TODO: inline conversion using context menu
+    //"contextMenus",
+    
+    // "bookmarks",
+    // "chrome://favicon/",
+    // "cookies",
+    // "experimental",
+    // "fileBrowserHandler",
+    // "history",
+    // "idle",
+    // "management",
+    // "tts",
+    // "ttsEngine",     
+  ]
+
+  // Extra, unused, for reference
+    
+  // @link http://code.google.com/chrome/extensions/override.html
+  // "chrome_url_overrides" : { "bookmarks|history|newtab": "myPage.html" },
+  
+  // @link http://code.google.com/chrome/extensions/content_scripts.html
+  // "content_scripts": [{}],
+  
+  
+  // Only on ChromeOS: extend file browser
+  // @link http://code.google.com/chrome/extensions/fileBrowserHandler.html
+  // "file_browser_handlers": [{}],
+  
+  // @link http://code.google.com/chrome/extensions/manifest.html#key
+  // "key": "",
+  
+  // @link http://code.google.com/chrome/extensions/manifest.html#minimum_chrome_version
+  // "minimum_chrome_version": "n.n.n.n",
+  
+  // @link http://code.google.com/chrome/extensions/manifest.html#nacl_modules
+  // @link https://developers.google.com/native-client/
+  // "nacl_modules": [{}],
+  
+  // @link http://code.google.com/chrome/extensions/npapi.html
+  // "plugins": [{}],
+  
+  // @link http://code.google.com/chrome/extensions/autoupdate.html
+  // "update_url": "",
+}
