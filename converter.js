@@ -21,11 +21,20 @@
  *   http://www.osinet.fr/osi/contact.asp
  */
 
+/**
+ * Update #now from string representation of parameter.
+ * 
+ * @param ts
+ *   A UNIX timestamp
+ */
 function updateNow(ts) {
   var element = document.getElementById('now');
   element.innerHTML = ts.toString();
 }
 
+/**
+ * Update #now based on date/time input values
+ */
 function tsChangeDateTime() {
   var fields = {
     year: 0,
@@ -44,6 +53,12 @@ function tsChangeDateTime() {
   updateNow(ts);
 }
 
+/**
+ * Update date/time input elements based on #now or current time
+ * 
+ * @param useElement
+ *   Use #now if true, otherwise use current time.
+ */
 function tsChangeTimestamp(useElement) {
   var fields = {};
 
@@ -75,4 +90,64 @@ function tsChangeTimestamp(useElement) {
     element.value = value;
   };
   updateNow(ts);
+}
+
+/**
+ * Convert an underscore in the chosen property to an underlined span and accesskey attribute
+ *  
+ * @param element
+ *   The element on which to act.
+ * @param property
+ *   The name of the property in which to look for an underscore.
+ */
+function buildSingleAccessKey(element, property) {
+  var pos = element[property].indexOf('_'); 
+  if (pos == -1) {
+    return;
+  }
+  
+ element.accessKey = element[property][pos + 1];
+ element[property] = element[property].replace(/_(.)/, '<span class="underline">$1</span>');
+}
+
+/**
+ * Build access keys on all input elements or the labels attached to them.
+ */
+function buildAccesskeys() {
+  if (buildAccesskeys.alreadyRan) {
+    return;
+  }
+  else {
+    buildAccesskeys.alreadyRan = true;
+  }
+  
+  var inputs = document.getElementsByTagName('input');
+  
+  if (inputs.length > 0) {
+    for (var i = 0 ; i < inputs.length ; i++) {
+      var element = inputs[i];
+      var accessor = element.labels.length
+        ? element.labels[0]
+        : element;
+      switch (accessor.tagName) {
+        case 'LABEL':
+          buildSingleAccessKey(accessor, 'innerHTML');
+          break;
+          
+        case 'INPUT':
+          buildSingleAccessKey(accessor, 'value');
+          break;
+      }     
+    }
+  }
+}
+
+/**
+ * Initialize screen:
+ * - build access keys
+ * - fill input fields with default values
+ */
+function initialize() {
+  buildAccesskeys();
+  tsChangeTimestamp();
 }

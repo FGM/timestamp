@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <!-- 
 /**
@@ -30,35 +31,35 @@
     <script type="text/javascript" src="converter.js" ></script>
     </head>
     
-  <body id="converter" onload="tsChangeTimestamp();">
+  <body id="converter" onload="initialize();">
     <div class="wrapper" id="datetime-wrapper">
       <table oninput="tsChangeDateTime();" >
         <tbody>
           <tr>
-            <td>Année</td>
+            <td><label for="year">_Année</label></td>
             <td><input type="number" id="year"    size="4" maxlength="4" min="1970" max="2038" value="" /></td>
-            <td>Mois</td>
+            <td><label for="month">_Mois</label></td>
             <td><input type="number" id="month"   size="2" maxlength="2" min="1" max="12" value="" /></td>
-            <td>Jour</td>
+            <td><label for="day">_Jour</label></td>
             <td><input type="number" id="day"     size="2" maxlength="2" min="1" max="31" value="" /></td>
             </tr>
           <tr>
-            <td>Heure</td>
+            <td><label for="hour">_Heure</label></td>
             <td><input type="number" id="hour"    size="2" maxlength="2" min="0" max="23" value="" /></td>
-            <td>Minutes</td>
+            <td><label for="minutes">M_inutes</label></td>
             <td><input type="number" id="minutes" size="2" maxlength="2" min="0" max="59" value="" /></td>
-            <td>Secondes</td>
+            <td><label for="seconds">S_econdes</label></td>
             <td><input type="number" id="seconds" size="2" maxlength="2" min="0" max="59" value="" /></td>
             </tr>
           </tbody>
         </table>
       </div>
     <div class="wrapper" id="timestamp-wrapper">
-      <label for="timestamp">Horodatage</label>
+      <label for="timestamp">Horo_datage</label>
       <input type="number" id="timestamp" oninput="tsChangeTimestamp(true);" size="10" maxlength="10" min="0" max="2147483647" value="" />
       </div>
     <div class="wrapper" id="bottom-wrapper">
-      <input type="submit" id="close" value="Fermer" onclick="window.close();" />
+      <input type="submit" id="close" autofocus value="Fermer" onclick="window.close();" />
       <span id="now"></span>
       </div>
     </body>

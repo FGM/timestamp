@@ -22,11 +22,14 @@
  *   http://www.osinet.fr/osi/contact.asp
  */
 
+body {
+  font-family: sans-serif;
+}
+
 #status {
-  //border: thin solid;
-  box-shadow: 0.2em 0.2em 0.5em silver; 
-  padding: 0.5em 1em;
+  box-shadow: 0.2em 0.2em 0.5em #ccc; 
   margin: 0 0 1em 0;
+  padding: 0.5em 1em;
   width: 20em;
 }
 
@@ -34,19 +37,33 @@
   width: 30em;
 }
 
-#converter input[type="text"] {
+#converter input {
+  -webkit-appearance: none; /* Disable box-shadow default elimination */
+  border-radius: 0.33em;
+  box-shadow: 0.2em 0.2em 0.5em #ccc;
+  font-size: 100%; /* Override -webkit-small-control default */ 
   text-align: right;
+}
+
+#converter label,
+#now {
+  margin-left: 1em;
+  text-shadow: 0.1em 0.1em 0.1em #ccc;
 }
 
 #converter .wrapper {
   border: solid thin silver;
   border-radius: 0.25em;
-  box-shadow: 0.2em 0.2em 0.25em #888;
+  box-shadow: 0.2em 0.2em 0.25em #ccc;
   margin: 0.25em 0.5em;
-  padding: 1em;
+  padding: 1em 1em 1em 0;
   width: 30em;
 }
 
 #converter #bottom-wrapper input {
   float: right;
+}
+
+span.underline {
+  text-decoration: underline;
 }
